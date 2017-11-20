@@ -1,0 +1,325 @@
+<!--
+  Generated template for the StudentManagementEditPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>StudentManagementEdit</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-segment [(ngModel)]="optionView">
+        <ion-segment-button value="basic">
+            Basic Details
+        </ion-segment-button>
+        <ion-segment-button value="education">
+            Education Details
+        </ion-segment-button>
+        <ion-segment-button value="marksentry">
+            Marks Entry
+        </ion-segment-button>
+    </ion-segment>
+
+    <div [ngSwitch]="optionView">
+        <ion-list *ngSwitchCase="'basic'">
+            <ion-item>
+                <ion-label> First Name : </ion-label>
+                <ion-input type="text" [(ngModel)]="studentItem.firstName"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label> Last Name : </ion-label>
+                <ion-input type="text" [(ngModel)]="studentItem.lastName"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label> Date Of Birth : </ion-label>
+                <ion-input type="text" [(ngModel)]="studentItem.dateOfBirth"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label> Passport : </ion-label>
+                <ion-input type="text" [(ngModel)]="studentItem.passport"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label> Agent : </ion-label>
+                <ion-input type="text" [(ngModel)]="studentItem.firstName"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label> Nationality : </ion-label>
+                <ion-input type="text" [(ngModel)]="studentItem.nationality"></ion-input>
+            </ion-item>
+            <ion-item>
+                <button ion-button (click)="updateStudentInfo">Update</button>
+            </ion-item>
+        </ion-list>
+        <div *ngSwitchCase="'education'">
+
+            <ion-card>
+                <ion-list>
+                    <ion-item>
+                        <ion-label> Program Type : </ion-label>
+                        <ion-select interface="popover" [(ngModel)]="studentEduDetails.programType">
+                            <ion-option value='0' selected="true" disabled="true">Select</ion-option>
+                            <!-- <ion-option *ngFor="let itm of shiftList" [value]="itm.name">{{itm.name}}</ion-option> -->
+                            <ion-option value="bachelors">Bachelors</ion-option>
+                            <ion-option value="masters">Masters</ion-option>
+                            <ion-option value="12th">12th</ion-option>
+                            <ion-option value="diploma">Diploma</ion-option>
+                            <ion-option value="polytechnic">Polytechnic</ion-option>
+                            <ion-option value="mtech">M.tech</ion-option>
+                            <ion-option value="other">Other</ion-option>
+                        </ion-select>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label> Country : </ion-label>
+                        <ion-select interface="popover" [(ngModel)]="studentEduDetails.countryOfEducation">
+                            <ion-option value='0' selected="true" disabled="true">Select</ion-option>
+                            <ion-option value="india">India</ion-option>
+                        </ion-select>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label> University Name : </ion-label>
+                        <ion-select interface="popover" [(ngModel)]="studentEduDetails.universityName">
+                            <ion-option value='0' selected="true" disabled="true">Select</ion-option>
+                            <ion-option value="india">India</ion-option>
+                        </ion-select>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label> Evaluation Name : </ion-label>
+                        <ion-select interface="popover" [(ngModel)]="studentEduDetails.evaluationName">
+                            <ion-option value='0' selected="true" disabled="true">Select</ion-option>
+                            <ion-option value="india">India</ion-option>
+                        </ion-select>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label> Purpose : </ion-label>
+                        <ion-input type="text" [(ngModel)]="studentEduDetails.purpose"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label> Program Start Date : </ion-label>
+                        <ion-input type="text" [(ngModel)]="studentEduDetails.programStartDate"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label> Program End Date : </ion-label>
+                        <ion-input type="text" [(ngModel)]="studentEduDetails.programEndDate"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label> Length Of Program : </ion-label>
+                        <ion-input type="text" [(ngModel)]="studentEduDetails.lengthOfprogram"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label> Program Of Study : </ion-label>
+                        <ion-input type="text" [(ngModel)]="studentEduDetails.programOfStudy"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label> Admission Requirements : </ion-label>
+                        <ion-input type="text" [(ngModel)]="studentEduDetails.admissionRequirements"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label> US Equivalency : </ion-label>
+                        <ion-input type="text" [(ngModel)]="studentEduDetails.usEquivalency"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label> Notes : </ion-label>
+                        <ion-input type="text" [(ngModel)]="studentEduDetails.notes"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>Graduated : </ion-label>
+                        <ion-select interface="popover" [(ngModel)]="studentEduDetails.graduated">
+                            <ion-option value='0' selected="true" disabled="true">Select</ion-option>
+                            <ion-option value="true">Yes</ion-option>
+                            <ion-option value="false">No</ion-option>
+                        </ion-select>
+                    </ion-item>
+                </ion-list>
+            </ion-card>
+        </div>
+        <ion-list *ngSwitchCase="'marksentry'">
+            <ion-card>
+                <ion-grid>
+                    <ion-row>
+                        <ion-col>
+                            <strong>Net GPA</strong>
+                        </ion-col>
+                        <ion-col>
+                            <strong>Weight GPA</strong>
+                        </ion-col>
+                        <ion-col>
+                            <strong>Total Max</strong>
+                        </ion-col>
+                        <ion-col>
+                            <strong>Total Secured</strong>
+                        </ion-col>
+                        <ion-col>
+                            <strong>Net Max</strong>
+                        </ion-col>
+                        <ion-col>
+                            <strong>Net Secured</strong>
+                        </ion-col>
+                        <ion-col>
+                            <strong>Total Foreign Credits</strong>
+                        </ion-col>
+                        <ion-col>
+                            <strong>Total US Credits</strong>
+                        </ion-col>
+                        <ion-col>
+                            <strong>Gross GPA </strong>
+                        </ion-col>
+                        <ion-col>
+                            <strong>Gross Weight GPA </strong>
+                        </ion-col>
+                    </ion-row>
+
+                    <ion-row>
+                        <ion-col>
+                            <ion-item style="padding-left:0px">
+                                <ion-input type="text" [(ngModel)]="studentMarksEntry.netGPA"></ion-input>
+                            </ion-item>
+                        </ion-col>
+                        <ion-col>
+                            <ion-item style="padding-left:0px">
+                                <ion-input type="number" [(ngModel)]="studentMarksEntry.netWeightedGPA"></ion-input>
+                            </ion-item>
+                        </ion-col>
+                        <ion-col>
+                            <ion-item style="padding-left:0px">
+                                <ion-input type="number" [(ngModel)]="studentMarksEntry.totalMax"></ion-input>
+                            </ion-item>
+                        </ion-col>
+                        <ion-col>
+                            <ion-item style="padding-left:0px">
+                                <ion-input type="number" [(ngModel)]="studentMarksEntry.totalSecured"></ion-input>
+                            </ion-item>
+                        </ion-col>
+                        <ion-col>
+                            <ion-item style="padding-left:0px">
+                                <ion-input type="number" [(ngModel)]="studentMarksEntry.netMax"></ion-input>
+                            </ion-item>
+                        </ion-col>
+                        <ion-col>
+                            <ion-item style="padding-left:0px">
+                                <ion-input type="number" [(ngModel)]="studentMarksEntry.netSecured"></ion-input>
+                            </ion-item>
+                        </ion-col>
+                        <ion-col>
+                            <ion-item style="padding-left:0px">
+                                <ion-input type="number" [(ngModel)]="studentMarksEntry.totalForeignCredits"></ion-input>
+                            </ion-item>
+                        </ion-col>
+                        <ion-col>
+                            <ion-item style="padding-left:0px">
+                                <ion-input type="number" [(ngModel)]="studentMarksEntry.totalUSCredits"></ion-input>
+                            </ion-item>
+                        </ion-col>
+                        <ion-col>
+                            <ion-item style="padding-left:0px">
+                                <ion-input type="number" [(ngModel)]="studentMarksEntry.grossGPA"></ion-input>
+                            </ion-item>
+                        </ion-col>
+                        <ion-col>
+                            <ion-item style="padding-left:0px">
+                                <ion-input type="number" [(ngModel)]="studentMarksEntry.grossWeightedGPA"></ion-input>
+                            </ion-item>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-card>
+
+
+            <ion-card>
+                <ion-grid>
+                    <ion-row>
+                        <ion-col col-2>
+                            <strong>Course Name</strong>
+                        </ion-col>
+                        <ion-col>
+                            <strong>Course Type</strong>
+                        </ion-col>
+                        <ion-col>
+                            <strong>Gross Max</strong>
+                        </ion-col>
+                        <ion-col>
+                            <strong>Gross Secured</strong>
+                        </ion-col>
+                        <ion-col>
+                            <strong>Foreign Credits</strong>
+                        </ion-col>
+                        <ion-col>
+                            <strong>US Credits</strong>
+                        </ion-col>
+                        <ion-col>
+                            <strong>Grade Letter </strong>
+                        </ion-col>
+                        <ion-col>
+                            <strong>Include </strong>
+                        </ion-col>
+                        <ion-col>
+                            <strong>Edit </strong>
+                        </ion-col>
+                        <ion-col>
+                            <strong>Delete </strong>
+                        </ion-col>
+                    </ion-row>
+
+                    <ion-row *ngFor="let course of studentsCoursesList;">
+                        <ion-col col-2>
+                            <ion-item style="padding-left:0px">
+                                <ion-input type="text" readonly="course.isReadOnly" [(ngModel)]="course.courseName"></ion-input>
+                            </ion-item>
+                        </ion-col>
+                        <ion-col>
+                            <ion-item style="padding-left:0px">
+                                <ion-input type="number" readonly="course.isReadOnly" [(ngModel)]="course.courseType"></ion-input>
+                            </ion-item>
+                        </ion-col>
+                        <ion-col>
+                            <ion-item style="padding-left:0px">
+                                <ion-input type="number" readonly="course.isReadOnly" [(ngModel)]="course.grossMax"></ion-input>
+                            </ion-item>
+                        </ion-col>
+                        <ion-col>
+                            <ion-item style="padding-left:0px">
+                                <ion-input type="number" readonly="course.isReadOnly" [(ngModel)]="course.grossSecured"></ion-input>
+                            </ion-item>
+                        </ion-col>
+                        <ion-col>
+                            <ion-item style="padding-left:0px">
+                                <ion-input type="number" readonly="course.isReadOnly" [(ngModel)]="course.foreignCredits"></ion-input>
+                            </ion-item>
+                        </ion-col>
+                        <ion-col>
+                            <ion-item style="padding-left:0px">
+                                <ion-input type="number" readonly="course.isReadOnly" [(ngModel)]="course.usCredits"></ion-input>
+                            </ion-item>
+                        </ion-col>
+                        <ion-col>
+                            <ion-item style="padding-left:0px">
+                                <ion-input readonly="course.isReadOnly" type="number" [(ngModel)]="course.gradeLetter"></ion-input>
+                            </ion-item>
+                        </ion-col>
+                        <ion-col>
+                            <ion-item style="padding-left:0px">
+                                <ion-toggle [(ngModel)]="course.included"></ion-toggle>
+                            </ion-item>
+                        </ion-col>
+                        <ion-col>
+                            <ion-toggle [(ngModel)]="course.isReadOnly"></ion-toggle>
+                        </ion-col>
+                        <ion-col>
+                            <button ion-button icon-only (click)="deleteCourseItemClicked(course)" style="padding-left:0px">
+                              <ion-icon  name="trash"></ion-icon>
+                          </button>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+                <button ion-button right (click)="addNewCourseItem()">
+                    <ion-icon name="add"></ion-icon>
+                </button>
+            </ion-card>
+        </ion-list>
+    </div>
+</ion-content>
